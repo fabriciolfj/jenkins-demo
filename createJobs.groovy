@@ -1,3 +1,12 @@
+pipelineJob('pipelineJob') {
+    definition {
+        cps {
+            script(readFileFromWorkspace('pipelineJob.groovy'))
+            sandbox()
+        }
+    }
+}
+
 pipelineJob('curd-person-job') {
     definition {
         cpsScm {
@@ -7,7 +16,6 @@ pipelineJob('curd-person-job') {
                         url 'https://github.com/fabriciolfj/crud-person.git'
                     }
                     branch 'main'
-                    scriptPath('Jenkinsfile')
                 }
             }
         }
